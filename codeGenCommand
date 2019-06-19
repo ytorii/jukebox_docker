@@ -1,0 +1,7 @@
+FRONTEND_OUT_DIR=frontend/src/lib
+
+protoc -I=./protos juke_box.proto --js_out=import_style=commonjs:${FRONTEND_OUT_DIR} --grpc-web_out=import_style=commonjs,mode=grpcwebtext:${FRONTEND_OUT_DIR}
+
+BACKEND_OUT_DIR=backend/lib
+
+grpc_tools_ruby_protoc -I ./protos --ruby_out=${BACKEND_OUT_DIR} --grpc_out=${BACKEND_OUT_DIR} ./protos/juke_box.proto
