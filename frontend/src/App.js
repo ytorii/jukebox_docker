@@ -11,7 +11,7 @@ const Title = ({children}) => (
 
 function App() {
   const [title, setTitle] = useState('')
-  const [lylics, setLylics] = useState(["A", "B"])
+  const [lylic, setLylic] = useState()
 
   const fetchTitle = () => {
     const request = new TitleRequest();
@@ -26,11 +26,7 @@ function App() {
     request.setTitle(title)
 
     let responseStream = client.play(request, {})
-    responseStream.on('data', res => {
-      console.log(lylics)
-
-      setLylics([...lylics, res.getLylic()])
-    });
+    responseStream.on('data', res => { setLylic(res.getLylic()) });
   }
 
   return (
@@ -41,9 +37,9 @@ function App() {
       <button onClick={fetchTitle} >Select a song</button>
       <Title>{title}</Title>
       <button onClick={fetchLylics} >Play!</button>
-      <ul>
-        { lylics.map( (lylic, index) => <li key={index} >{ lylic }</li> ) }
-      </ul>
+      <div>
+        <span>{lylic}</span>
+      </div>
     </div>
   );
 }
