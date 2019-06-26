@@ -20,7 +20,7 @@ class LylicEnumerator
 
     @lylics.each do |lylic|
       # Assuming some downloading or processing.
-      sleep 1
+      sleep 2
       puts lylic
       yield Jukebox::LylicResponse.new(lylic: lylic)
     end
