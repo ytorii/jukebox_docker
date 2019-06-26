@@ -1,10 +1,9 @@
 version: "3"
 services:
   envoy:
-    build: ./envoy
+    build: ./proxy
     ports:
       - "8080:8080"
-      - "9901:9901"
     links:
       - "backend"
 
