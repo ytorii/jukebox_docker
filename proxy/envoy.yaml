@@ -32,9 +32,9 @@ static_resources:
               config:
                 path: /dev/stdout
           http_filters:
-          - name: envoy.grpc_web
-          - name: envoy.cors
-          - name: envoy.router
+            - name: envoy.grpc_web
+            - name: envoy.cors
+            - name: envoy.router
   clusters:
   - name: jukebox_service
     connect_timeout: 0.25s
