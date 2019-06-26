@@ -18,6 +18,8 @@ message SongRequest {
 // The response message containing title of song
 message TitleResponse {
   string title = 1;
+  string genre = 2;
+  string imageUrl = 3;
 }
 
 // The response message containing song of genre

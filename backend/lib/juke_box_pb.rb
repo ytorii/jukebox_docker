@@ -12,6 +12,8 @@ Google::Protobuf::DescriptorPool.generated_pool.build do
     end
     add_message "jukebox.TitleResponse" do
       optional :title, :string, 1
+      optional :genre, :string, 2
+      optional :imageUrl, :string, 3
     end
     add_message "jukebox.LylicResponse" do
       optional :lylic, :string, 1

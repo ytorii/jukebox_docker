@@ -8,6 +8,7 @@
 // GENERATED CODE -- DO NOT EDIT!
 /* eslint-disable */
 
+
 var jspb = require('google-protobuf');
 var goog = jspb;
 var global = Function('return this')();
@@ -360,7 +361,9 @@ proto.jukebox.TitleResponse.prototype.toObject = function(opt_includeInstance) {
  */
 proto.jukebox.TitleResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    title: jspb.Message.getFieldWithDefault(msg, 1, "")
+    title: jspb.Message.getFieldWithDefault(msg, 1, ""),
+    genre: jspb.Message.getFieldWithDefault(msg, 2, ""),
+    imageurl: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -401,6 +404,14 @@ proto.jukebox.TitleResponse.deserializeBinaryFromReader = function(msg, reader) 
       var value = /** @type {string} */ (reader.readString());
       msg.setTitle(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setGenre(value);
+      break;
+    case 3:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setImageurl(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -437,6 +448,20 @@ proto.jukebox.TitleResponse.serializeBinaryToWriter = function(message, writer) 
       f
     );
   }
+  f = message.getGenre();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
+  f = message.getImageurl();
+  if (f.length > 0) {
+    writer.writeString(
+      3,
+      f
+    );
+  }
 };
 
 
@@ -452,6 +477,36 @@ proto.jukebox.TitleResponse.prototype.getTitle = function() {
 /** @param {string} value */
 proto.jukebox.TitleResponse.prototype.setTitle = function(value) {
   jspb.Message.setProto3StringField(this, 1, value);
+};
+
+
+/**
+ * optional string genre = 2;
+ * @return {string}
+ */
+proto.jukebox.TitleResponse.prototype.getGenre = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/** @param {string} value */
+proto.jukebox.TitleResponse.prototype.setGenre = function(value) {
+  jspb.Message.setProto3StringField(this, 2, value);
+};
+
+
+/**
+ * optional string imageUrl = 3;
+ * @return {string}
+ */
+proto.jukebox.TitleResponse.prototype.getImageurl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
+};
+
+
+/** @param {string} value */
+proto.jukebox.TitleResponse.prototype.setImageurl = function(value) {
+  jspb.Message.setProto3StringField(this, 3, value);
 };
 
 

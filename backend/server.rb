@@ -30,7 +30,11 @@ end
 class JukeBoxServiceImpl < Jukebox::JukeBox::Service
   def choose(_request, _call)
     chosen_song = SongList::LIST.sample
-    Jukebox::TitleResponse.new(title: chosen_song[:title])
+    Jukebox::TitleResponse.new(
+      title: chosen_song[:title],
+      genre: chosen_song[:genre],
+      imageUrl: chosen_song[:imageUrl]
+    )
   end
 
   def play(request, _call)

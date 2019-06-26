@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const SongPlayer = ({onPlay, title}) => {
+const SongPlayer = ({onPlay, title, genre, imageUrl}) => {
   const classes = useStyles();
   const theme = useTheme();
 
@@ -49,7 +49,7 @@ const SongPlayer = ({onPlay, title}) => {
             {title}
           </Typography>
           <Typography variant="subtitle1" color="textSecondary">
-            Nursery Rhyme
+            {genre}
           </Typography>
         </CardContent>
         <div className={classes.controls}>
@@ -66,15 +66,7 @@ const SongPlayer = ({onPlay, title}) => {
       </div>
       <CardMedia
         className={classes.cover}
-        image="http://clipart-library.com/img/1453720.jpg"
-      />
-      <CardMedia
-        className={classes.cover}
-        image="http://clipart-library.com/img/1758007.jpg"
-      />
-      <CardMedia
-        className={classes.cover}
-        image="http://clipart-library.com/img/1845420.jpg"
+        image={imageUrl}
       />
     </Card>
   );

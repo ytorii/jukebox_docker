@@ -12,13 +12,17 @@ const client = new JukeBoxClient("http://localhost:8080", {}, {})
 
 function App() {
   const [title, setTitle] = useState('')
+  const [genre, setGenre] = useState('')
+  const [imageUrl, setImageUrl] = useState('')
   const [lylic, setLylic] = useState()
 
   const fetchTitle = () => {
     const request = new TitleRequest()
     client.choose(request, {}, (_, res) => {
-      const title = res.array[0]
+      const [title, genre, imageUrl] = res.array
       setTitle(title)
+      setGenre(genre)
+      setImageUrl(imageUrl)
     })
   }
 
@@ -36,7 +40,12 @@ function App() {
         Jukebox with gRPC
       </Header>
       <SelectButton onClick={fetchTitle}/>
-      <SongPlayer onPlay={fetchLylics} title={title} />
+      <SongPlayer
+        onPlay={fetchLylics}
+        title={title}
+        genre={genre}
+        imageUrl={imageUrl}
+      />
       <Lylics title={title}>{lylic}</Lylics>
     </div>
   )
